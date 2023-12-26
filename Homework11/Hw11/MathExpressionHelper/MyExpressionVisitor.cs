@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
 
-namespace Hw9.MathExpressionHelper;
+namespace Hw11.MathExpressionHelper;
 
 /// <summary>
 /// Класс отвечающий за проход по всем вершинам Expression
 /// </summary>
-public class MyExpressionVisitor : ExpressionVisitor
+public class MyExpressionVisitor
 {
     private readonly ExpressionCalculator _expressionCalculator;
 
@@ -17,11 +17,28 @@ public class MyExpressionVisitor : ExpressionVisitor
     /// <summary>
     /// Метод посещающий вершину и добавляющий её в список выражений калькулятора
     /// </summary>
-    public override Expression? Visit(Expression? node)
+    public void Visit(Expression? node)
     {
-        if(node is not null && !_expressionCalculator.ExecuteBefore.ContainsKey(node))
+        if (node is null)
+            return;
+        
+        if(!_expressionCalculator.ExecuteBefore.ContainsKey(node))
             _expressionCalculator.AddExpression(node);
         
-        return base.Visit(node);
+        if(node.NodeType is not ExpressionType.Constant)
+            VisitExpressionNode(node as dynamic);
     }
+
+    protected void VisitExpressionNode(UnaryExpression node)
+    {
+        Visit(node.Operand);
+    }
+
+    protected void VisitExpressionNode(BinaryExpression node)
+    {
+        Visit(node.Left);
+        Visit(node.Right);
+    }
+    
+    
 }

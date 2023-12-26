@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Linq.Expressions;
 
-namespace Hw9.MathExpressionHelper;
+namespace Hw11.MathExpressionHelper;
 
 /// <summary>
 /// Класс, отвечающий за построение дерева выражений (Epxression Tree)
