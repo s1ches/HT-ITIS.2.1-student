@@ -27,6 +27,7 @@
       <ProjectReference Include="..\Homework10\Hw10\Hw10.csproj" />
       <ProjectReference Include="..\Homework11\Hw11\Hw11.csproj" />
       <ProjectReference Include="..\Homework13\Hw.13\Hw13.csproj" />
+      <ProjectReference Include="..\Homework13\WebApplication1\WebApplication1.csproj" />
       <ProjectReference Include="..\Homework1\Hw1\Hw1.csproj" />
       <ProjectReference Include="..\Homework2\Hw2\Hw2.ilproj" />
       <ProjectReference Include="..\Homework3\Hw3.Mutex\Hw3.Mutex.csproj" />
@@ -35,6 +36,7 @@
       <ProjectReference Include="..\Homework8\Hw8\Hw8.csproj" />
       <ProjectReference Include="..\Homework9\Hw9\Hw9.csproj" />
       <ProjectReference Include="..\Tests.RunLogic\Tests.RunLogic.csproj" />
+      <ProjectReference Include="..\WebApplication1\WebApplication1.csproj" />
     </ItemGroup>
 
 </Project>
