@@ -27,7 +27,7 @@ public class MathCachedCalculatorService : IMathCalculatorService
 	public async Task<CalculationMathExpressionResultDto> CalculateMathExpressionAsync(string? expression)
 	{
 		if (string.IsNullOrWhiteSpace(expression)) 
-			return new CalculationMathExpressionResultDto(MathErrorMessager.EmptyString);
+			return new CalculationMathExpressionResultDto(MathErrorMessager.EmptyStringMessage());
 		
 		expression = expression.WithoutSpaces();
 

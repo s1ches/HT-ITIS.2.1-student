@@ -29,7 +29,7 @@ public static class ExpressionValidator
     /// <returns>Correct или MathErrorMessage</returns>
     public static Task<string> CheckForCorrectExpressionAsync(string? expression)
     {
-        if (string.IsNullOrWhiteSpace(expression)) return Task.FromResult(MathErrorMessager.EmptyString);
+        if (string.IsNullOrWhiteSpace(expression)) return Task.FromResult(MathErrorMessager.EmptyStringMessage());
 
         var expressionWithoutSpaces = expression.WithoutSpaces();
         
@@ -82,10 +82,10 @@ public static class ExpressionValidator
             if (!IsBracket(symbol)) continue;
             
             if(IsOpeningBracket(symbol)) bracketsStack.Push(symbol);
-            else if (!bracketsStack.TryPop(out _)) return MathErrorMessager.IncorrectBracketsNumber;
+            else if (!bracketsStack.TryPop(out _)) return MathErrorMessager.IncorrectBracketsNumberMessage();
         }
 
-        return !bracketsStack.Any() ? Correct : MathErrorMessager.IncorrectBracketsNumber;
+        return !bracketsStack.Any() ? Correct : MathErrorMessager.IncorrectBracketsNumberMessage();
     }
 
     /// <summary>
@@ -98,8 +98,8 @@ public static class ExpressionValidator
         var startsWithOperation = expression.StartsWith(Operations.Without(UnaryOperations));
         var endsWithOperation = expression.EndsWith(Operations);
 
-        if (startsWithOperation) return MathErrorMessager.StartingWithOperation;
-        if (endsWithOperation) return MathErrorMessager.EndingWithOperation;
+        if (startsWithOperation) return MathErrorMessager.StartingWithOperationMessage();
+        if (endsWithOperation) return MathErrorMessager.EndingWithOperationMessage();
         
         for (int i = 1; i < expression.Length-1; i++)
         {

@@ -78,7 +78,7 @@ public class ExpressionCalculator
             ExpressionType.Divide =>
                 Math.Abs(operands[1]) > double.Epsilon
                     ? operands[0] / operands[1] 
-                    : throw new DivideByZeroException(MathErrorMessager.DivisionByZero),
+                    : throw new DivideByZeroException(MathErrorMessager.DivisionByZeroMessage()),
             ExpressionType.Negate => -operands[0],
             ExpressionType.Constant => (double)(expression as ConstantExpression)?.Value!,
             _ => throw new Exception($"Unavailable expression node type {expression.NodeType}")
