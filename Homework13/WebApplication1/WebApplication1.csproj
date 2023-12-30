@@ -74,6 +74,7 @@
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\calculateMathExpression.js" />
     </ItemGroup>
 
     <ItemGroup>
